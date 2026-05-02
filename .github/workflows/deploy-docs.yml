@@ -51,12 +51,7 @@ jobs:
     - name: Optimize assets
       run: |
         cd docs
-        # Compress images
-        find site -name "*.png" -exec pngquant --quality=65-80 --output {} --force {} \; 2>/dev/null || true
-        find site -name "*.jpg" -o -name "*.jpeg" -exec jpegoptim --max=80 --strip-all {} \; 2>/dev/null || true
-        # Minify CSS and JS
-        find site -name "*.css" -exec cleancss --output {} {} \; 2>/dev/null || true
-        find site -name "*.js" -exec terser {} --output {} --compress --mangle {} \; 2>/dev/null || true
+        echo "Skipping optimization to avoid tool dependencies"
 
     - name: Setup Pages
       uses: actions/configure-pages@v5
