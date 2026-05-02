@@ -1,0 +1,77 @@
+/* Custom branding colors for Studio Platform */
+
+/* Primary brand colors */
+:root {
+  --md-primary-fg-color: #06273c;
+  --md-primary-fg-color--light: #0d4268;
+  --md-primary-fg-color--dark: #041a2a;
+  --md-accent-fg-color: #009688;
+  --md-accent-fg-color--transparent: rgba(0, 150, 136, 0.1);
+}
+
+/* Header customization */
+.md-header__topic {
+  color: var(--md-primary-fg-color);
+}
+
+/* Navigation customization */
+.md-nav__item--active > .md-nav__link {
+  color: var(--md-accent-fg-color);
+}
+
+/* Button styling */
+.md-button {
+  background-color: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+}
+
+.md-button:hover {
+  background-color: var(--md-primary-fg-color--light);
+  border-color: var(--md-primary-fg-color--light);
+}
+
+/* Link styling */
+a {
+  color: var(--md-accent-fg-color);
+}
+
+a:hover {
+  color: var(--md-primary-fg-color);
+}
+
+/* Code block styling */
+.md-code {
+  background-color: var(--md-accent-fg-color--transparent);
+  border-left: 3px solid var(--md-accent-fg-color);
+}
+
+/* Table of contents styling */
+.md-nav--secondary .md-nav__link--active {
+  color: var(--md-primary-fg-color);
+}
+
+/* Footer customization */
+.md-footer {
+  background-color: var(--md-primary-fg-color--dark);
+}
+
+/* Search highlighting */
+.search-result__teaser mark {
+  background-color: var(--md-accent-fg-color--transparent);
+  color: var(--md-accent-fg-color);
+}
+
+/* Tab styling */
+.md-tabs__item {
+  color: var(--md-primary-fg-color);
+}
+
+.md-tabs__item--active {
+  color: var(--md-accent-fg-color);
+}
+
+/* Custom logo sizing */
+.md-header__button img {
+  height: 1.5rem;
+  width: auto;
+}
