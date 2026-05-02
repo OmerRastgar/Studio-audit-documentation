@@ -676,7 +676,7 @@ interface UserData {
 interface UserDTO {
   id: string;
   email: string;
-  name: class="hljs">John Doe</span>
+  name: string;
   role: string;
   createdAt: string;
   updatedAt: string;
