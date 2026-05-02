@@ -1,0 +1,217 @@
+site_name: Studio Platform Documentation
+site_description: Enterprise Compliance & Audit Management Platform
+site_author: Cybergaar Team
+site_url: https://doc.cybergaar.com
+repo_name: OmerRastgar/studio
+repo_url: https://github.com/OmerRastgar/studio
+
+# Repository
+edit_uri: edit/main/docs/
+
+# Theme
+theme:
+  name: material
+  language: en
+  logo: assets/fav.png
+  favicon: assets/fav.png
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: custom
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: custom
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - header.autohide
+  icon:
+    repo: fontawesome/brands/github
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      type: datetime
+      timezone: UTC
+      fallback_to_build_date: true
+  - awesome-pages
+  - macros
+  - redirects
+  - glightbox
+
+# Customization
+extra:
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/OmerRastgar/studio
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/
+    - icon: fontawesome/solid/globe
+      link: https://cybergaar.com
+  version:
+    provider: mike
+    default: stable
+  generator: false
+
+# Extra CSS for custom styling
+extra_css:
+  - assets/stylesheets/extra.css
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+      title: On this page
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: OmerRastgar
+      repo: studio
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Navigation
+nav:
+  - Home:
+    - index.md
+    - Overview: overview.md
+    - Features: features.md
+    - Quick Start: quick-start.md
+  - Installation:
+    - installation/index.md
+    - Prerequisites: installation/prerequisites.md
+    - Docker Setup: installation/docker-setup.md
+    - Configuration: installation/configuration.md
+    - Environment Variables: installation/environment-variables.md
+    - SSL/TLS Setup: installation/ssl-setup.md
+  - User Guide:
+    - user-guide/index.md
+    - Getting Started: user-guide/getting-started.md
+    - Dashboard: user-guide/dashboard.md
+    - Projects: user-guide/projects.md
+    - Evidence Management: user-guide/evidence-management.md
+    - Compliance Tracking: user-guide/compliance-tracking.md
+    - AI Assistant: user-guide/ai-assistant.md
+    - Risk Management: user-guide/risk-management.md
+    - Reports: user-guide/reports.md
+  - Admin Guide:
+    - admin-guide/index.md
+    - User Management: admin-guide/user-management.md
+    - System Configuration: admin-guide/system-configuration.md
+    - Security Settings: admin-guide/security-settings.md
+    - Backup & Recovery: admin-guide/backup-recovery.md
+    - Monitoring: admin-guide/monitoring.md
+  - Developer Guide:
+    - developer-guide/index.md
+    - API Reference: developer-guide/api-reference.md
+    - Architecture: developer-guide/architecture.md
+    - Database Schema: developer-guide/database-schema.md
+    - Integrations: developer-guide/integrations.md
+    - Contributing: developer-guide/contributing.md
+  - Architecture:
+    - architecture/index.md
+    - System Overview: architecture/system-overview.md
+    - Microservices: architecture/microservices.md
+    - Data Flow: architecture/data-flow.md
+    - Security Model: architecture/security-model.md
+    - Deployment: architecture/deployment.md
+  - Integrations:
+    - integrations/index.md
+    - FleetDM: integrations/fleetdm.md
+    - Prowler: integrations/prowler.md
+    - n8n Workflows: integrations/n8n.md
+    - Google Services: integrations/google-services.md
+    - Jira: integrations/jira.md
+    - Slack: integrations/slack.md
+  - Troubleshooting:
+    - troubleshooting/index.md
+    - Common Issues: troubleshooting/common-issues.md
+    - Performance: troubleshooting/performance.md
+    - Security: troubleshooting/security.md
+    - Logs: troubleshooting/logs.md
+  - Specifications:
+    - Security & Auth Constraints: specs/security-auth-spec.md
+    - Database Constraints: specs/database-spec.md
+    - Logging & Audit Constraints: specs/logging-audit-permissions-spec.md
+    - AI Agent Constraints: specs/ai-agent-spec.md
+    - Document Retrieval Constraints: specs/document-rag-spec.md
+    - Evidence & Graph Constraints: specs/evidence-graph-spec.md
+    - Compliance & Risk Constraints: specs/compliance-risk-spec.md
+    - Integrations & Automation Constraints: specs/integrations-automation-spec.md
+    - Threat & Vulnerability Constraints: specs/threat-vulnerability-spec.md
+    - Endpoint Management Constraints: specs/endpoint-management-spec.md
+    - Employee Management Constraints: specs/employee-management-spec.md
+    - Cloud Management Constraints: specs/cloud-management-spec.md
+    - Security Settings Constraints: specs/security-settings-spec.md
+    - Role-Based Settings Constraints: specs/role-settings-spec.md
+
+# Copyright
+copyright: Copyright &copy; 2024 Cybergaar Team

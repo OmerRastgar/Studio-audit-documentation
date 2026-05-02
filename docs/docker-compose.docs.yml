@@ -1,0 +1,101 @@
+version: '3.8'
+
+# Standalone MkDocs Documentation Docker Configuration
+# This can be deployed independently on any server
+# Usage: docker-compose -f docker-compose.docs.yml up -d
+
+services:
+  # MkDocs Documentation Service
+  docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: studio-docs
+    restart: unless-stopped
+    ports:
+      - "8010:8000"  # Development server
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MKDOCS_CONFIG=mkdocs.yml
+      - DOCKER_ENV=true
+    volumes:
+      - ./docs:/app/docs
+      - ./mkdocs.yml:/app/mkdocs.yml
+      - ./requirements.txt:/app/requirements.txt
+      - docs_cache:/app/site
+    networks:
+      - docs_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+  # Nginx Reverse Proxy (Production Only)
+  docs-nginx:
+    image: nginx:alpine
+    container_name: studio-docs-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+      - docs_cache:/usr/share/nginx/html
+    networks:
+      - docs_network
+    depends_on:
+      - docs
+    profiles:
+      - production
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # SSL Certificate Generator (Development Only)
+  cert-generator:
+    image: alpine:latest
+    container_name: studio-docs-cert-gen
+    volumes:
+      - ./ssl:/ssl
+      - ./scripts:/scripts
+    command: |
+      sh -c "
+        if [ ! -f /ssl/cert.pem ]; then
+          apk add --no-cache openssl
+          openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+            -keyout /ssl/key.pem \
+            -out /ssl/cert.pem \
+            -subj '/C=US/ST=State/L=City/O=Studio/CN=doc.cybergaar.com'
+          echo 'SSL certificates generated'
+        else
+          echo 'SSL certificates already exist'
+        fi
+      "
+    profiles:
+      - setup
+
+volumes:
+  docs_cache:
+    driver: local
+    name: studio_docs_cache
+
+networks:
+  docs_network:
+    name: studio_docs_network
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
