@@ -180,7 +180,6 @@ nav:
     - architecture/index.md
     - System Overview: architecture/system-overview.md
     - Microservices: architecture/microservices.md
-    - Data Flow: architecture/data-flow.md
     - Security Model: architecture/security-model.md
     - Deployment: architecture/deployment.md
   - Integrations:
