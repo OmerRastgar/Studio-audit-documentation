@@ -207,53 +207,6 @@ a:hover {
   color: #888888 !important;
 }
 
-/* Code block styling - fix white-on-white text */
-code {
-  color: #000000 !important;
-  background-color: #f5f5f5 !important;
-}
-
-pre {
-  background-color: #f5f5f5 !important;
-}
-
-pre code {
-  color: #000000 !important;
-  background-color: transparent !important;
-}
-
-/* Dark mode code blocks */
-[data-md-color-scheme="slate"] code {
-  color: #ffffff !important;
-  background-color: #2d2d2d !important;
-}
-
-[data-md-color-scheme="slate"] pre {
-  background-color: #2d2d2d !important;
-}
-
-[data-md-color-scheme="slate"] pre code {
-  color: #ffffff !important;
-  background-color: transparent !important;
-}
-
-/* Highlighted code blocks */
-.highlight {
-  background-color: #f5f5f5 !important;
-}
-
-.highlight code {
-  color: #000000 !important;
-}
-
-[data-md-color-scheme="slate"] .highlight {
-  background-color: #2d2d2d !important;
-}
-
-[data-md-color-scheme="slate"] .highlight code {
-  color: #ffffff !important;
-}
-
 /* Tab styling */
 .md-tabs__item {
   color: var(--md-accent-fg-color);

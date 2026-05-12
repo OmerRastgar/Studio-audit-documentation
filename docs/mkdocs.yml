@@ -107,8 +107,8 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
       emoji_index: !!python/name:material.extensions.emoji.twemoji
-  - pymdownx.highlight
-  - pymdownx.inlinehilite
+  # - pymdownx.highlight
+  # - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.magiclink:
       normalize_issue_symbols: true
