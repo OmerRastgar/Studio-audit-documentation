@@ -107,10 +107,7 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
       emoji_index: !!python/name:material.extensions.emoji.twemoji
-  - pymdownx.highlight:
-      anchor_linenums: false
-      line_spans: __span
-      pygments_lang_class: true
+  - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.magiclink:
@@ -180,6 +177,7 @@ nav:
     - architecture/index.md
     - System Overview: architecture/system-overview.md
     - Microservices: architecture/microservices.md
+    - Data Flow: architecture/data-flow.md
     - Security Model: architecture/security-model.md
     - Deployment: architecture/deployment.md
   - Integrations:
