@@ -467,6 +467,13 @@ graph TD
    📋 Project Sync: Enabled
    📋 Status Updates: Enabled
    📋 Time Tracking: Enabled
+
+   AI Compliance Configuration:
+   🤖 AI Analysis & Tasks: Managed via Admin AI Dashboard
+   🤖 Document Type Management: Enabled
+   🤖 Verification Tasks: Custom checklist-based
+   🤖 Project Memory: Core facts + Daily logs
+   🤖 Dreaming Cycle: Periodic consolidation enabled
 ```
 
 #### **API Configuration**
