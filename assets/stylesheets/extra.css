@@ -145,6 +145,68 @@ a:hover {
   color: var(--md-accent-fg-color);
 }
 
+/* Search result styling - fix white-on-white issue */
+.md-search-result {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.md-search-result__title {
+  color: #000000 !important;
+}
+
+.md-search-result__teaser {
+  color: #333333 !important;
+}
+
+.md-search-result__meta {
+  color: #666666 !important;
+}
+
+/* Search dropdown background */
+.md-search__form {
+  background-color: #ffffff;
+}
+
+/* Search input text */
+.md-search__input {
+  color: #000000 !important;
+}
+
+.md-search__input::placeholder {
+  color: #999999 !important;
+}
+
+/* Dark mode search styling */
+[data-md-color-scheme="slate"] .md-search-result {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] .md-search-result__title {
+  color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] .md-search-result__teaser {
+  color: #cccccc !important;
+}
+
+[data-md-color-scheme="slate"] .md-search-result__meta {
+  color: #999999 !important;
+}
+
+[data-md-color-scheme="slate"] .md-search__form {
+  background-color: #2d2d2d;
+}
+
+[data-md-color-scheme="slate"] .md-search__input {
+  color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] .md-search__input::placeholder {
+  color: #888888 !important;
+}
+
 /* Tab styling */
 .md-tabs__item {
   color: var(--md-accent-fg-color);
