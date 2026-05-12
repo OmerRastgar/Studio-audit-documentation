@@ -148,7 +148,7 @@ graph TD
 10. **Client Response** - Response delivery
 
 **Data Transformation:**
-```typescript
+```ts
 // Request data transformation
 interface RequestData {
   headers: Record<string, string>;
